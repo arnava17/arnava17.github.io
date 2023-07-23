@@ -17,7 +17,6 @@ const scales = [
     "Eb",
     "Gb"
 ]
-console.log(scales);
 
 let currMaxRand = scales.length;
 let timer = null;
@@ -40,9 +39,7 @@ function getRandomScale() {
     let randomIndex = getRandom(currMaxRand -1);
     let randomItems = scales[randomIndex];
 
-    console.log("randomIndex", randomIndex);
     [ scales[currMaxRand -1], scales[randomIndex] ] = [ scales[randomIndex], scales[currMaxRand -1] ];
-    console.log(scales);
     
     currMaxRand--;
     return randomItems; 
