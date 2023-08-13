@@ -9,7 +9,7 @@
 </head>
 <body>
     <section id="scale">
-        <h1 style="font-size: 48px;">C major</h1>
+        <h1 style="font-size: 48px;">Press Start</h1>
     </section>
     <section id="configuration">
         <label for="bpm-input">BPM: </label>
@@ -17,7 +17,18 @@
         <br>
         <button id="start">Start</button>
         <button id="reset" disabled>Reset</button>
+        <br>
+        <h1>Pick a Scale</h1>
+        <input type="radio" name="scale" value="Major" checked>Major</input>
+        <input type="radio" name="scale" value="Minor">Minor</input>
     </section>
     <script src='main.js'></script>
+    <!-- <br><br><br><br>
+    <section>
+        <h2 id="voice-text">Voice</h2>
+        <input type="number" id="voice-input" placeholder="voice" value="0"/><br>
+        <button id="speak-btn">Speak</button>
+    </section>
+    <script src='main2.js'></script> -->
 </body>
 </html>

@@ -26,12 +26,16 @@ const scaleText = document.querySelector('h1');
 const bpmInput = document.querySelector("input");
 const startBtn = document.querySelector("#start");
 const resetBtn = document.querySelector("#reset");
+const scaleRadioButtons = Array.from(document.getElementsByName('scale'));
 
 
 function getRandom(max) {
     return Math.floor(Math.random() * (max+1));
 }
 
+function getScale() {
+    return scaleRadioButtons.find(el => el.checked === true).value;
+}
 function getRandomScale() {
     if(currMaxRand === 0) {
         return -1
@@ -45,7 +49,18 @@ function getRandomScale() {
     return randomItems; 
 }
 
-
+function getAudioAlphabetText(alphabet) {
+    switch (alphabet) {
+        case "B":
+            return "Ball";
+        case "D":
+            return "Duck";
+        case "E":
+            return "Egg"
+        default:
+            return alphabet;
+    }
+}
 
 function getAudioText(key, scaleType = "Major") {
     let mid = " "
@@ -71,7 +86,7 @@ function start() {
             return;
         }
 
-        let scaleType = "Major";
+        let scaleType = getScale();
         scaleText.innerHTML = key + " " + scaleType;
 
         const scaleAudio = new SpeechSynthesisUtterance(getAudioText(key, scaleType));
@@ -86,7 +101,6 @@ function reset() {
     clearInterval(timer);
     resetBtn.disabled = true;
     startBtn.disabled = false;
-    scaleText.innerHTML = "C major";
     currMaxRand = scales.length;
 }
 
